@@ -1,164 +1,110 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
-    <title>Cookbook</title>
-  </head>
-
+<head>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
+  <title>Cookbook</title>
   <style>
-    .coiny-regular {
-      font-family: "Coiny", system-ui;
-      font-weight: 400;
-      font-style: normal;
-    }
-
     body {
       padding: 0;
-      overflow-x: hidden;
+      margin: 0;
       background-image: url(book.png);
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      margin: 0;
       height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-start; /* Align to the left */
+      align-items: flex-start;
     }
 
-    .egg_1_img {
-      background-image: url(egg_1.jpg);
-      width: 30vw;
-      height: 30vh;
-      background-size: cover;
-      background-position: center;
-      position: absolute;
-      right: 50%;
-      top: 50%;
-      transform: translateY(-50%);
-      border-radius: 20px;
-    }
-
-    .recipe {
-      font-family: "Coiny";
-      font-size: 7vw;
-      color: hsl(39, 100%, 50%);
-      text-shadow: 5px 5px 0px rgba(0, 136, 21, 1);
-      text-align: center;
-    }
-
-    .title {
-      font-family: "Coiny";
-      font-size: 10vh;
-      color: hsl(39, 100%, 50%);
-      text-shadow: 5px 5px 0px rgba(0, 136, 21, 1);
-      text-align: left;
-      margin-left: 5vw;
-    }
-
-    .egg_img_title {
-      background-image: url(egg_cover_img-fotor-bg-remover-20250307214756.png);
-      height: 30vh;
-      width: 100%;
-      background-size: cover;
-      background-position: center bottom;
-      margin-top: -10vh;
-      display: block;
-      min-height: 60vh;
-    }
-
-    .button {
-      background-color: rgba(0, 136, 21, 1);
-      padding: 2px 10px;
-      font-family: "Coiny";
-      color: white;
-      border: none;
-      cursor: pointer;
+    .container {
       display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 50%; /* Limit the container to the left half of the page */
+      margin-top: 15vh;
+    }
+
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 25vh;
+      margin-bottom: 3vh;
+    }
+
+    .box img {
+      width: 15vw; 
+      height: auto;
       border-radius: 5px;
-      transition: background-color 0.3s;
-
-      position: fixed; 
-      bottom: -1vh;    
-      right: 13vw;     
     }
 
-    .button:hover {
-      background-color: darkgreen;
+    .box .text {
+      width: 50%;
+      padding: 20px;
+      font-family: "Coiny", sans-serif;
+      color: hsl(39, 100%, 50%);
+      font-size: 1em;
     }
 
-    .button img {
-      width: 30px;
-      height: 30px;
+    .box.reverse .text {
+      text-align: right; /* Reverse the text alignment */
     }
-
-    main {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 10px;
-      justify-content: center;
-      width: 100%;
-      margin: auto;
-      max-height: 60vh;
-    }
-
-    .recipe-container {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
+    
+    .container_right {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
+      width: 37vw;
+      height: 60vh;
+      margin-top: 20vh;
+    }
+
+    .container_right img {
+      width: 60%; 
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .text_right {
+      padding: 2px;
+      font-family: "Coiny", sans-serif;
+      color: hsl(39, 100%, 50%);
+      font-size: 1em;
       text-align: center;
-      padding-right: 12vw;
     }
 
-    .recipe-box {
-      background-color: hsl(340, 70%, 95%);
-      padding: 5px;
-      width: 80%;
-      max-width: 50vw; 
-      border-radius: 15px;
-      box-sizing: border-box; 
-    }
-    .recipe-box h2 {
-      font-size: 2vw;
-    }
-
-    .recipe-box p {
-      font-size: 1.5vw;
-    }
   </style>
+</head>
 
-  <body>
-    <main>
-      <div class="egg_1_img"></div>
-      <div class="recipe-container">
-        <div class="recipe">
-          Recipe
-        </div>
-        <div class="recipe-box">
-          <h2>Ingredients</h2>
-          <p>6 large eggs <br>
-             1/4 cup Japanese mayonnaise <br>
-             1/4 to 1/2 teaspoon salt, adjust to taste <br>
-             1/4 teaspoon black pepper, adjust to taste <br>
-             pinch of sugar <br>
-             1 teaspoon yellow mustard <br>
-             2 to 3 tablespoons heavy cream or milk</p>
-          <h2>For Assembly</h2>
-          <p>Japanese milk bread, or any thick slice soft white bread <br>
-             thinly sliced cucumber <br>
-             salted butter, room temperature</p>
-        </div>
-        <a href="another-page.html">
-          <button class="button">
-            next!
+<body>
+  <div class="container">
+    <!-- First box with photo on left and text on right -->
+    <div class="box">
+      <img src="egg_2.webp" alt="photo1">
+      <div class="text">
+        <p>boil them eggs!</p>
       </div>
-    </main>
-  </body>
+    </div>
+    
+    <!-- Second box with photo on right and text on left -->
+    <div class="box reverse">
+      <div class="text">
+        <p>mash 'em with mayo and seasoning!
+        </p>
+      </div>
+      <img src="egg_3.webp" alt="photo2">
+    </div>
+  </div>
+  <div class="container_right">
+    <img src="egg_4.webp" alt="photo1">
+    <div class="text_right">
+      <p>smack on some bread and done!</p>
+    </div>
+</body>
 </html>
